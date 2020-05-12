@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 X-RAY CLASSIFIER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Bellota+Text&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">   
+     <link rel = "icon" href = "images/bacteria.png"  type = "image/x-icon">
+     <style>
+         
+         #prediction {
+
+        color : #fff;
+        font-family:'Bellota Text', cursive;
+        font-size: 18px;
+        text-align : center;
+        letter-spacing: 2px;
+        margin-bottom: 50px;
+        }
+
+        #prediction:hover{
+        text-decoration: underline;
+        }
+
+        footer{
+        position: relative;
+        margin-top: 100px;
+          width: 100%;
+        }
+
+        .footer-text{
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            font-size: 20px;
+            margin-top: 20px;
+            font-family:'Bellota Text', cursive;
+        }
+
+        .fa-heart{
+            color: crimson;
+            animation: animate-heart 3s infinite;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 940px){
+
+            footer{
+                position: relative;
+                margin-top: 100px;
+            }
+        }
+
+        @keyframes animate-heart{
+
+            0%{
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50%{
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+            100%{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .disclaimer{
+            color: white;
+            text-align: center;
+            font-family:'Bellota Text', cursive;
+            font-size: 14px;
+            margin: 20px auto;
+            
+        }
+
+        .preview-img{
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            position: relative;
+            margin: 40px auto;
+            height: 200px;
+        }
+
+        .fileLabel{
+            font-size: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    
+   <div class="header">
+    <div class="header-title">
+        <h4>AI-Based COVID19 Detector using X-Ray Image Classification</h4>
+
+        <p>Implemented using Keras, Tensorflow and Flask</p>
+    </div></div>
+
+    <div class="guide">
+    <p>Upload a Valid X-Ray Image and click on Predict to Obtain a diagnosis below</p>
+    <hr class="underline">
+    <h2> <span> &#8595 </span></h2>
+    </div>
+
+    <div class="upload-visual">
+
+        <form action="/predict" method="POST" id ="form" enctype="multipart/form-data">
+            <input type="file" oninput = "filesize(this)" accept="image/*" name="file" class="fileInput" id="file" >
+            <label id="fileLabel" class="fileLabel" for="file">Upload the X-Ray Visual <span class="fa fa-upload" style="margin: 5px;"></span></label>
+
+            <div class="preview-img" id="previewImg">
+                <img src="" alt="Image Preview" class="xrayvisual" id="xrayvisual" >
+            </div>
+
+            <button type="submit" class="submitBtn">Diagnose  <span class="fa fa-user-md" style="margin: auto 5px"></span></button>
+        </form>
+    </div>
+
+    {% if prediction %}
+    <div class="prediction">
+        <p id = "prediction">{{ prediction }}</p>
+    </div>
+    {% endif %}
+
+    <footer>
+        <hr class="underline">
+        <div class="footer-section">
+            <p class="footer-text">Developed by Similoluwah <span class="fa fa-heart"></span> </p>
+            <p class="disclaimer">DISCLAIMER :- This is a fairly unreliable means of predicting a person's COVID19 status due to the inadequate amount of Data used and  the unprofessional Data-sourcing approach. However, this can still serve a basic proof of concept of the practical potential AI/Computer Vision brings.
+            </p>
+        </div>
+
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+</body>
+</html>

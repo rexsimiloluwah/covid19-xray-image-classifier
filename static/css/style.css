@@ -1,0 +1,192 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing : border-box;
+
+}
+
+body,html{
+    min-height: 100%;
+    background : linear-gradient(to bottom, rgba(0,0,23,0.5), rgba(40, 41, 39, 0.9)), url('../images/bg.jpg');
+    background-size: cover;
+    min-width: 100vw;
+}
+
+.header{
+
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+
+}
+
+.header-title h4{
+
+    text-transform: uppercase;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    border: 2px solid white;
+    font-family: 'Bellota Text', cursive;
+    font-size: 20px;
+    animation: header-title 2s infinite;
+}
+
+@keyframes header-title{
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.01);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-label{
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.01);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+.header-title p{
+
+    color: white;
+    margin: 20px auto;
+    text-align : center;
+    font-size: 18px;
+    font-family: 'Bad Script', cursive;
+    letter-spacing: 3px;
+}
+
+.file-type{
+    margin-top: 30px;
+   
+}
+
+.fileInput{
+
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    
+}
+
+.fileInput + label {
+    font-size: 20px;
+    color: rgb(255,255,255);
+    background-color: transparent;
+    display: inline-block;
+    border: 2px solid rgb(255,255,255);
+    padding: 10px 25px;
+    font-family: 'Bellota Text', cursive;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+    position: relative;
+    
+}
+
+.fileInput + label {
+    cursor: pointer;
+}
+
+.fileInput + label *{
+    pointer-events: none;
+}
+
+  
+.guide p,.guide h2{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 20px auto;
+    font-family: 'Bellota Text', cursive;
+    text-align: center;
+}
+
+.guide h2{
+    font-size: 40px;
+    animation: arrow-animate 1.5s infinite;
+}
+
+.underline{
+    color: rgb(255,255,255,0.6);
+    border: none;
+    height: 0.1px;
+    background-color: rgba(211, 197, 197, 0.1);
+}
+
+@keyframes arrow-animate{
+
+    0%{
+        opacity: 1;
+        color: white;
+        transform: scaleY(1);
+    }
+
+
+    50%{
+        opacity: 0.8;
+        transform: scaleY(0.5);
+    }
+
+    100%{
+        opacity: 1;
+        transform: scaleY(1.01);
+    }
+}
+
+.preview-img{
+    display : flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.xrayvisual{
+    height: 200px;
+    display: none;
+}
+
+.submitBtn{
+
+    color: white;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 10px 15px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 20px;
+    font-family:'Bellota Text', cursive;
+    display: none;
+}
+
+
+@media (max-width: 1024px){
+
+    .fileInput + label{
+        width: 90%;
+    }
+}
+
+
+
